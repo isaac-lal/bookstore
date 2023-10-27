@@ -1,0 +1,32 @@
+.wrapper {
+  padding: 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.add-icon {
+  font-size: 36px;
+  line-height: 40px;
+  color: #075985;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0.5rem 0.5rem;
+}
+
+.books-table__head {
+  border-width: 1px;
+  border-color: rgb(71, 85, 105);
+  border-radius: 6px;
+}
