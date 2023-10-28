@@ -28,7 +28,7 @@ const CreateBook = () => {
         enqueueSnackbar('Book Created successfully', { variant: 'success' });
         navigate('/');
       })
-      .catch(err => {
+      .catch((err) => {
         setLoading(false);
         // alert('An error happened. Please check console');
         enqueueSnackbar('Error', { variant: 'error' });
@@ -47,7 +47,7 @@ const CreateBook = () => {
           <input
             type='text'
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2 w-full'
           />
         </div>
@@ -56,7 +56,7 @@ const CreateBook = () => {
           <input
             type='text'
             value={author}
-            onChange={e => setAuthor(e.target.value)}
+            onChange={(e) => setAuthor(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2 w-full'
           />
         </div>
@@ -65,7 +65,7 @@ const CreateBook = () => {
           <input
             type='text'
             value={publishYear}
-            onChange={e => setPublishYear(e.target.value)}
+            onChange={(e) => setPublishYear(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2 w-full'
           />
         </div>
