@@ -19,10 +19,9 @@ const CreateBook = () => {
       author,
       publishYear,
     };
-
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+      .post('https://bookstore-server.isaaclal.com/books', data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Created successfully', { variant: 'success' });

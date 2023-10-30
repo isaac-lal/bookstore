@@ -17,7 +17,7 @@ app.use(express.json());
 // Option 2: Allow custom origins
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://bookstore.isaaclal.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
