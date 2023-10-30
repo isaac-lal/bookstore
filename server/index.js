@@ -1,9 +1,10 @@
 import express from 'express';
-import { PORT, MongoDB_URL } from './config.js';
-import { Book } from './models/bookModel.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
@@ -12,15 +13,15 @@ app.use(express.json());
 
 // Middleware for handling CORS policy
 // Option 1: Allow all origins with default of cors(*)
-app.use(cors());
-// Option 2: Allow custom irigins
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],
-//   })
-// );
+// app.use(cors());
+// Option 2: Allow custom origins
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
+);
 
 // HTTP Route
 app.get('/', (req, res) => {
@@ -130,13 +131,13 @@ app.delete('/books/:id', async (req, res) => {
 
 // Connect to MongoDB database
 mongoose
-  .connect(MongoDB_URL)
+  .connect(process.env.MongoDB_URL)
   .then(() => {
     console.log('App connected to database');
 
     // Listen on port
-    app.listen(PORT, () => {
-      console.log(`App is listening to port: ${PORT}`);
+    app.listen(process.env.NODE_PORT, () => {
+      console.log(`App is listening to port: ${process.env.NODE_PORT}`);
     });
   })
   .catch((err) => {
